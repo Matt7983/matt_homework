@@ -7,8 +7,6 @@ class ChapterPrinter < Blueprinter::Base
   fields :sequence
 
   view :with_units do
-    association :units, blueprint: UnitPrinter do |chapter|
-      chapter.units.order(:sequence)
-    end
+    association :units, blueprint: UnitPrinter
   end
 end

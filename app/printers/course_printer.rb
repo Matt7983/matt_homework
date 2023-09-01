@@ -7,8 +7,6 @@ class CoursePrinter < Blueprinter::Base
   fields :description
 
   view :with_chapters_and_units do
-    association :chapters, blueprint: ChapterPrinter, view: :with_units do |course|
-      course.chapters.order(:sequence)
-    end
+    association :chapters, blueprint: ChapterPrinter, view: :with_units
   end
 end
