@@ -7,5 +7,11 @@ AllCops:
   DisplayCopNames: true
   NewCops: enable
 
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
