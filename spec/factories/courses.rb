@@ -5,6 +5,7 @@ FactoryBot.define do
     name { Faker::Educator.course_name }
     lecturer { Faker::Name.name }
     description { Faker::Quote.yoda }
+    available { 1 }
 
     trait :with_chapter_and_unit do
       after(:create) do |course|

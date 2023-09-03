@@ -5,6 +5,7 @@ class CoursePrinter < Blueprinter::Base
   fields :name
   fields :lecturer
   fields :description
+  fields :available
 
   view :with_chapters_and_units do
     association :chapters, blueprint: ChapterPrinter, view: :with_units
