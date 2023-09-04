@@ -46,6 +46,7 @@ RSpec.describe 'Courses', type: :request do
     let!(:chapter) { FactoryBot.create(:chapter, sequence: 10, course: course) }
 
     before do
+      FactoryBot.create(:course, :with_chapter_and_unit)
       FactoryBot.create(:chapter, sequence: 1, course: course)
       FactoryBot.create(:unit, sequence: 10, chapter: chapter)
       FactoryBot.create(:unit, sequence: 1, chapter: chapter)
@@ -56,7 +57,7 @@ RSpec.describe 'Courses', type: :request do
     end
 
     it 'returns the course with chapters, units ordered and CoursePrinter wrapped.' do
-      query_result = Course.includes(chapters: :units).order('chapters.sequence asc, units.sequence asc')
+      query_result = Course.includes(chapters: :units).order('chapters.sequence asc, units.sequence asc').find(course.id)
       expect(do_get.body).to eq(CoursePrinter.render(query_result, view: :with_chapters_and_units))
     end
   end

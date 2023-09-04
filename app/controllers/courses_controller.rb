@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1
   def show
-    course = Course.includes(chapters: :units).order('chapters.sequence asc, units.sequence asc')
+    course = Course.includes(chapters: :units).order('chapters.sequence asc, units.sequence asc').find(params[:id])
 
     render json: CoursePrinter.render(course, view: :with_chapters_and_units)
   end
@@ -28,7 +28,6 @@ class CoursesController < ApplicationController
 
   # PATCH/PUT /courses/1
   def update
-    # binding.pry
     @course.update!(course_params)
 
     render json: CoursePrinter.render(@course, view: :with_chapters_and_units)
