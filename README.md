@@ -512,8 +512,6 @@ To run the RSpec locally, follow the steps below:
 - https://github.com/pry/pry-rails
 - 常用rails debug工具，和pry gem功能類似，需要在程式碼debug時，在中間加入binding.pry即可當作中斷點，另外比較特別的一點是，使用pry-rails+awesome_print，以及再設定.pryrc後，即可在rails console中很方便的閱讀ActiveRecord資料。
 
-  ![Alt text](image.png)
-
 ## factory_bot_rails
 - https://github.com/thoughtbot/factory_bot_rails
 - factory_bot_rails是一款由factory_girl衍生過來，方便快速產生假資料的gem，並可以透過trail和association去設定多種模組及重複使用其他的factories。
